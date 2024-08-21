@@ -5,17 +5,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
-const index_1 = __importDefault(require("./routes/index"));
+const routes_1 = __importDefault(require("./routes"));
 const app = (0, express_1.default)();
 const port = 3000;
-// Serve static files
-app.use(express_1.default.static(path_1.default.join(__dirname, './public')));
-// Set EJS as the templating engine
+// Serve static files from the 'public' directory
+app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
+// Set the views directory and EJS as the templating engine
+app.set('views', path_1.default.join(__dirname, '../src/views')); // Point to the 'src/views' directory
 app.set('view engine', 'ejs');
-app.set('views', path_1.default.join(__dirname, './views'));
-// Use routes
-app.use('/router', index_1.default);
-// Start server
+// Use the router for handling routes
+app.use('/', routes_1.default);
+// Start the server
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${3000}`);
+    console.log(`Server is running at http://localhost:${port}`);
 });

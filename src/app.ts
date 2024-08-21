@@ -1,24 +1,21 @@
 import express from 'express';
 import path from 'path';
-import router from '../routes';
+import router from './routes';
 
 const app = express();
 const port = 3000;
 
-// Serve static files
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '../public')));
 
-
-
-// Set EJS as the templating engine
+// Set the views directory and EJS as the templating engine
+app.set('views', path.join(__dirname, '../src/views'));  // Point to the 'src/views' directory
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views'));
 
+// Use the router for handling routes
+app.use('/', router);
 
-app.use(router)
-
-
-// Start server
+// Start the server
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${3000}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });

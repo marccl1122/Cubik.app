@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="flex-1">
+    <section class="py-12 md:py-20">
+      <div class="container max-w-4xl px-4 mx-auto">
+        <h1 class="text-4xl font-bold mb-8">My Profile</h1>
+        <div class="bg-card text-card-foreground p-6 rounded-lg shadow-sm">
+          <p class="text-lg">Username: <strong>your_username</strong></p>
+          <p class="text-lg">Email: <strong>your_email@example.com</strong></p>
+          <a class="inline-flex items-center gap-2 font-medium hover:text-primary mt-4" href="/edit-profile">
+            Edit Profile
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

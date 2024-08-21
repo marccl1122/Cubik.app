@@ -1,12 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const router = express_1.default.Router();
+const express_1 = require("express");
+const router = (0, express_1.Router)();
 router.get('/', (req, res) => {
-    res.render('./views/home');
+    res.render('home');
 });
 router.get('/cubes', (req, res) => {
     res.render('cubes');
@@ -14,10 +11,10 @@ router.get('/cubes', (req, res) => {
 router.get('/algorithms', (req, res) => {
     res.render('algorithms');
 });
-router.get('/myprofile', (req, res) => {
+router.get('/my-profile', (req, res) => {
     res.render('myprofile');
 });
-router.get('/mycubes', (req, res) => {
+router.get('/my-cubes', (req, res) => {
     res.render('mycubes');
 });
 exports.default = router;

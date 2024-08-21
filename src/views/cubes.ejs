@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cubes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="flex-1">
+    <section class="py-12 md:py-20">
+      <div class="container max-w-6xl px-4 mx-auto">
+        <h1 class="text-4xl font-bold mb-8">Cubes</h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="text-2xl font-semibold">3x3x3 Cube</h3>
+              <p class="text-sm text-muted-foreground">The classic Rubik's Cube with 3 layers and 6 colors.</p>
+            </div>
+            <div class="p-6">
+              <img src="/path/to/3x3x3-image.jpg" alt="3x3x3 Cube" class="rounded-lg object-cover aspect-square">
+            </div>
+          </div>
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="text-2xl font-semibold">4x4x4 Cube</h3>
+              <p class="text-sm text-muted-foreground">A larger Rubik's Cube with 4 layers and 6 colors.</p>
+            </div>
+            <div class="p-6">
+              <img src="/path/to/4x4x4-image.jpg" alt="4x4x4 Cube" class="rounded-lg object-cover aspect-square">
+            </div>
+          </div>
+          <!-- Add more cube types here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

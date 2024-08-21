@@ -1,25 +1,23 @@
 {
   "name": "cubik.app",
   "version": "1.0.0",
-  "scripts": {
-    "build": "tsc",
-    "start": "node dist/app.js",
-    "dev": "nodemon dist/app.js",
-    "watch": "tsc -w"
-  },
+  "description": "A Rubik's Cube algorithm and cube collection management app.",
+  "main": "dist/app.js",
+ "scripts": {
+  "build": "tsc && xcopy /E /I src\\views dist\\views",
+  "start": "node dist/app.js",
+  "dev": "node dist/app.js\"",
+  "tailwind": "npx tailwindcss -i ./src/input.css -o ./public/css/styles.css --watch"
+},
   "dependencies": {
-    "ejs": "^3.1.6",
-    "express": "^4.17.3",
-    "path": "^0.12.7",
-    "three": "^0.142.0"
+    "express": "^4.18.1",
+    "ejs": "^3.1.6"
   },
   "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/node": "^16.11.11",
-    "autoprefixer": "^10.4.20",
-    "nodemon": "^2.0.22",
-    "postcss": "^8.4.41",
-    "tailwindcss": "^3.4.10",
-    "typescript": "^4.5.4"
+    "typescript": "^4.7.4",
+    "tsc-watch": "^4.6.0",
+    "tailwindcss": "^3.0.24",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14"
   }
 }
