@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "target": "ES6",
     "module": "commonjs",
     "strict": true,
@@ -8,6 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts","src/@types/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

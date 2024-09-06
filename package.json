@@ -4,21 +4,36 @@
   "description": "A Rubik's Cube algorithm and cube collection management app.",
   "main": "dist/app.js",
   "scripts": {
-    "build": "tsc && xcopy /E /I src\\views dist\\views",
-    "start": "node dist/app.js",
-    "dev": "node dist/app.js\"",
+    "build": "tsc && cp -r src/views dist/",
+    "start": "node dist/app.js --watch",
+    "dev": "tsnd src/app.ts",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./public/css/styles.css --watch"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.6",
     "express": "^4.18.1",
-    "ejs": "^3.1.6"
+    "express-session": "^1.18.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "typescript": "^4.7.4",
-    "tsc-watch": "^4.6.0",
-    "tailwindcss": "^3.0.24",
+    "@types/bcrypt": "^5.0.2",
+    "@types/connect-flash": "^0.0.40",
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.18.0",
+    "@types/passport": "^1.0.16",
+    "@types/passport-google-oauth20": "^2.0.16",
+    "@types/passport-local": "^1.0.38",
     "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14"
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24",
+    "ts-node-dev": "^2.0.0",
+    "tsc-watch": "^4.6.0",
+    "typescript": "^4.7.4"
   },
   "keywords": [],
   "author": "Marc",

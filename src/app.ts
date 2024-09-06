@@ -1,21 +1,43 @@
 import express from 'express';
 import path from 'path';
-import router from './routes';
+import router from './routes'; // Import your routes
+import session from 'express-session';
+import passport from 'passport';
+import flash from 'connect-flash';
+
+import { myStrategy, serialize, deserialize} from "./config/passport"
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, '../public')));
+// Middleware setup
+app.use(express.urlencoded({ extended: false }));
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Set the views directory and EJS as the templating engine
-app.set('views', path.join(__dirname, '../src/views'));  // Point to the 'src/views' directory
+passport.use(myStrategy)
+passport.serializeUser(serialize)
+passport.deserializeUser(serialize)
+
+
+
+// Set views directory and view engine
+app.set('views', path.join(__dirname, '../src/views'));
 app.set('view engine', 'ejs');
 
-// Use the router for handling routes
-app.use('/', router);
+// Serve static files
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Start the server
+// Use the router for all routes
+app.use('/', router);  // Ensure the router is being used
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
